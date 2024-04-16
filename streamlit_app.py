@@ -228,6 +228,9 @@ def get_stockx_data(variant):
 
 st.title('🔌⚡️👻')
 
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    get_stockx_data('AQ9129-170')
+# uploaded_file = st.file_uploader("Choose a file")
+# if uploaded_file is not None:
+    # get_stockx_data('AQ9129-170')
+sku = st.text_input('SKU to search! 🔍')
+if sku is not None or sku != '':
+  get_stockx_data('AQ9129-170')
