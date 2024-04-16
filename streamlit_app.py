@@ -44,7 +44,7 @@ def get_product_info(url_key):
   product_variant = []
 
   response = requests.post('https://stockx.com/api/p/e', headers=headers, json=json_data).json()
-  st.write(response)
+  # st.write(response)
   title = response['data']['product']['title']
   image_url = response['data']['product']['media']['imageUrl']
   brand = response['data']['product']['brand']
@@ -124,7 +124,7 @@ def get_search_results(variant):
   }
 
   response = requests.post('https://stockx.com/api/p/e', headers=headers, json=json_data)
-  st.write(response)
+  # st.write(response)
   url_key = response.json()['data']['browse']['results']['edges'][0]['node']['urlKey']
   return url_key
 
@@ -168,7 +168,6 @@ def get_market_data(url_key):
 
   # get sales data
   response = requests.post('https://stockx.com/api/p/e', headers=headers, json=json_data).json()
-  st.write(response)
   market_sales = []
   # parse variants for item
   for variant in response['data']['product']['variants']:
@@ -223,7 +222,7 @@ def get_stockx_data(variant):
                          'size', 'department', 'lowest_ask', 'highest_bid',
                          'last_sales', 'last_sales_72_hrs', 'number_of_asks',
                          'highest_bid', 'scraped_timestamp']]
-  return output_df
+  return st.dataframe(output_df, hide_index=True)
 
 
 st.title('🔌⚡️👻')
