@@ -222,7 +222,11 @@ def get_stockx_data(variant):
                          'size', 'department', 'lowest_ask', 'highest_bid',
                          'last_sales', 'last_sales_72_hrs', 'number_of_asks',
                          'highest_bid', 'scraped_timestamp']]
-  return st.dataframe(output_df, hide_index=True)
+  df = pd.dataframe(output_df.values, columns = ['sku', 'img_url', 'title', 'url',  'brand',
+                         'size', 'department', 'lowest_ask', 'highest_bid',
+                         'last_sales', 'last_sales_72_hrs', 'number_of_asks',
+                         'highest_bid', 'scraped_timestamp'])
+  return st.dataframe(df, hide_index=True)
 
 
 st.title('🔌⚡️👻')
