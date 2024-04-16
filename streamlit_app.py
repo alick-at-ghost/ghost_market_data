@@ -222,7 +222,7 @@ def get_stockx_data(variant):
                          'size', 'department', 'lowest_ask', 'highest_bid',
                          'last_sales', 'last_sales_72_hrs', 'number_of_asks',
                          'highest_bid', 'scraped_timestamp']]
-  return st.dataframe(output_df, hide_index=True)
+  return st.dataframe(output_df.values, hide_index=True)
 
 
 st.title('🔌⚡️👻')
@@ -232,4 +232,4 @@ st.title('🔌⚡️👻')
     # get_stockx_data('AQ9129-170')
 sku = st.text_input('SKU to search! 🔍')
 if sku is not None or sku != '':
-  get_stockx_data('AQ9129-170')
+  get_stockx_data(sku)
