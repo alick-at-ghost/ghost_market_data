@@ -11,7 +11,7 @@ import streamlit as st
 def get_stockx_product_metadata(variant):
   api_response = requests.post(
       "https://api.zyte.com/v1/extract",
-      auth=("338d2fb7537b4a599ca73a8dbf431211", ""),
+      auth=(st.secrets["zyte_api_key"], ""),
       json={
           "url": f"https://stockx.com/search?s={variant}",
           "httpResponseBody": True,
@@ -30,7 +30,7 @@ def get_stockx_product_metadata(variant):
 def get_stockx_pricing(url_key, title):
   sales_data = requests.post(
       "https://api.zyte.com/v1/extract",
-      auth=("338d2fb7537b4a599ca73a8dbf431211", ""),
+      auth=(st.secrets["zyte_api_key"], ""),
       json={
           "url": f"https://stockx.com{url_key}",
           "httpResponseBody": True,
